@@ -4,11 +4,9 @@ import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
-import hiber.service.UserServiceImp;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainApp {
@@ -59,6 +57,14 @@ public class MainApp {
          System.out.println("Car_serias = "+user.getCar().getSeries());
          System.out.println();
       }
+      List<User> users2 = userService1.UserFromModelAndSeriaCar("Opel",6);
+           for(User user : users2){
+              System.out.println("Id = "+user.getId());
+              System.out.println("First Name = "+user.getFirstName());
+              System.out.println("Last Name = "+user.getLastName());
+              System.out.println("Email = "+user.getEmail());
+              System.out.println();
+           }
 
       context.close();
    }
